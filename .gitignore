@@ -92,3 +92,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 examples/
+*.gem
