@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.files       = `git ls-files libs/*`.split("\n")
   s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.require_paths = ["libs"]
   s.required_ruby_version     = '>= 1.9.3'
 
   s.add_dependency('httparty', '~> 0.13.7')
