@@ -1,4 +1,4 @@
-require './NeverBounce'
+require './libs/NeverBounce'
 
 Gem::Specification.new do |s|
   s.name        = 'NeverBounce'
