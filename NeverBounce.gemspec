@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.files       = ["NeverBounce.rb", "NeverBounce/Errors.rb", "NeverBounce/Single.rb"]
   s.homepage    = 'https://neverbounce.com'
   s.license       = 'MIT'
+  s.required_ruby_version     = '>= 1.9.3'
 
   s.add_dependency('httparty', '~> 0.13.7')
 
