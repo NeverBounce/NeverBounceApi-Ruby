@@ -8,9 +8,10 @@ Gem::Specification.new do |s|
   s.description = "The official NeverBounce API library for Ruby"
   s.authors     = ["Mike Mollick"]
   s.email       = ['mike@neverbounce.com']
-  s.files       = ["./NeverBounce.rb", "./NeverBounce/Errors.rb", "./NeverBounce/Single.rb"]
   s.homepage    = 'https://neverbounce.com'
-  s.license       = 'MIT'
+  s.license     = 'MIT'
+  s.files       = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.required_ruby_version     = '>= 1.9.3'
 
   s.add_dependency('httparty', '~> 0.13.7')
