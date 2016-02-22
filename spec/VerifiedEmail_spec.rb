@@ -1,4 +1,4 @@
-require './NeverBounce/Single'
+require './libs/NeverBounce/Single'
 require 'spec_helper'
 
 
@@ -11,7 +11,7 @@ describe "VerifiedEmail" do
                 'result_details' => 0,
                 'execution_time' => 0.22115206718445
             })
-		
+
 		it "and getResultCode will return 0" do
             expect(x.getResultCode).to eq 0
 		end

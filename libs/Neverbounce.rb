@@ -1,12 +1,12 @@
 require 'HTTParty'
 require 'json';
 
-require './NeverBounce/Errors'
-require './NeverBounce/Single'
+require __FILE__ + '/../NeverBounce/Errors'
+require __FILE__ + '/../NeverBounce/Single'
 
 module NeverBounce
 
-	VERSION = "0.1.1"
+	VERSION = "0.1.3"
 
 	class API 
 	    include HTTParty

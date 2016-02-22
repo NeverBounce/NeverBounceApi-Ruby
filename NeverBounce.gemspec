@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ['mike@neverbounce.com']
   s.homepage    = 'https://neverbounce.com'
   s.license     = 'MIT'
-  s.files       = `git ls-files`.split("\n")
+  s.files       = `git ls-files libs/*`.split("\n")
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.required_ruby_version     = '>= 1.9.3'
 
