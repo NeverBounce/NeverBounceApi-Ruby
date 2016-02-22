@@ -1,6 +1,8 @@
+require 'NeverBounce'
+
 Gem::Specification.new do |s|
   s.name        = 'NeverBounce'
-  s.version     = '0.1.0'
+  s.version     = NeverBounce::VERSION
   s.date        = '2016-02-22'
   s.summary     = "The official NeverBounce API library for Ruby"
   s.description = "This offers "

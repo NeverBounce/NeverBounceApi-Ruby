@@ -5,6 +5,9 @@ require './NeverBounce/Errors'
 require './NeverBounce/Single'
 
 module NeverBounce
+
+	VERSION = "0.1.0"
+
 	class API 
 	    include HTTParty
         attr_accessor :host, :path, :apikey, :apiSecret, :accessToken, :options
