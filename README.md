@@ -6,7 +6,9 @@ This is the official NeverBounce API Ruby wrapper. It provides helpful methods t
 Installation
 ===
 
->TODO: Make into a gem
+```
+$ gem install NeverBounce
+```
 
 Usage
 ===

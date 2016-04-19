@@ -1,4 +1,4 @@
-require 'HTTParty'
+require 'httparty'
 require 'json';
 
 require __FILE__ + '/../NeverBounce/Errors'
