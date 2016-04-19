@@ -6,7 +6,7 @@ require __FILE__ + '/../NeverBounce/Single'
 
 module NeverBounce
 
-	VERSION = "0.1.3"
+	VERSION = "0.1.4"
 
 	class API 
 	    include HTTParty
