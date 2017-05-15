@@ -15,10 +15,10 @@ Usage
 
 To start using the wrapper sign up for an account [here](https://app.neverbounce.com/register) and get your api keys [here](https://app.neverbounce.com/settings/api).
 
-To initialize the wrapper use the following snippet, substituting in your `api key` and `api secret key`...
+To initialize the wrapper use the following snippet, substituting in your `api username` and `api secret key`...
 
 ```
-neverbounce = NeverBounce::API.new(API_KEY, API_SECRET_KEY)
+neverbounce = NeverBounce::API.new(API_USERNAME, API_SECRET_KEY)
 ```
 
 You can now access the verify method from this class. To validate a single email use the following...
