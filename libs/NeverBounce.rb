@@ -66,9 +66,10 @@ module NeverBounce
 	      		raise AccessTokenExpired
 	      	end
 
+	      	msg = response['msg'] || response['error_msg'];
 	        raise RequestError, "We were unable to complete your request. " \
 	              				"The following information was supplied: " \
-				              	"#{response['msg']} " \
+				              	"#{msg} " \
 				            	"\n\n(Request error)"
 	      end
 	      response
