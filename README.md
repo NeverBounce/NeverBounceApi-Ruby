@@ -1,6 +1,8 @@
 NeverBounce API Ruby Wrapper
 ---
 
+> This version of the wrapper is for V3. The V4 wrapper has not been released yet.
+
 This is the official NeverBounce API Ruby wrapper. It provides helpful methods to quickly implement our API in your Ruby applications.
 
 Installation
