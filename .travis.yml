@@ -1,0 +1,15 @@
+
+language: ruby
+
+install:
+  - bundle install --path ~/bundle
+
+script:
+  - bundle exec rspec
+
+rvm:
+  - 2.0
+  - 2.1
+  - 2.2
+  - 2.3
+  - 2.4
