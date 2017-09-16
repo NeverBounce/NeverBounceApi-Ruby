@@ -5,7 +5,7 @@ require "never_bounce/api/response/feature/job_status_fields"
 require_relative "../jobs_search"
 
 module NeverBounce; module API; module Response; class JobsSearch
-  # A single e-mail verification result.
+  # Bulk job status.
   # @see Response::Feature::JobStatusFields
   class Result < Container
     Response::Feature::JobStatusFields.load(self)

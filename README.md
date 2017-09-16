@@ -17,7 +17,7 @@ In your `Gemfile`, add:
 gem "neverbounce-api", git: "https://github.com/NeverBounce/NeverBounceApi-Ruby.git"
 ```
 
-Install bundled gems:
+Install bundle:
 
 ```sh
 $ bundle install
