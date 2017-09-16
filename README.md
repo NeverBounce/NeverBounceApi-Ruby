@@ -1,6 +1,12 @@
 
 <p align="center"><img src="https://neverbounce-marketing.s3.amazonaws.com/neverbounce_color_600px.png"></p>
 
+<p align="center">
+  <a href="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby"><img src="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby.svg" alt="Build Status"></a>
+  <a href="https://codeclimate.com/github/github/NeverBounce/NeverBounceApi-Ruby"><img src="https://codeclimate.com/github/github/NeverBounce/NeverBounceApi-Ruby/badges/gpa.svg" /></a>
+  <a href="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/coverage"><img src="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/badges/coverage.svg" /></a>
+</p>
+
 NeverBounceApi-Ruby
 ===================
 
