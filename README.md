@@ -85,7 +85,7 @@ This a is complete list of requests supported by `API::Client`.
 resp = client.account_info
 ```
 
-See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#account_info-instance_method), [REST]().
+See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#account_info-instance_method), [REST](https://developers.neverbounce.com/v4.0/reference#account-info).
 
 ### Check a single address
 
@@ -94,7 +94,7 @@ resp = client.single_check(email: "tom@isp.com")
 resp = client.single_check(email: "tom@isp.com", address_info: true, credits_info: true, timeout: 3)
 ```
 
-See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#single_check-instance_method), [REST]().
+See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#single_check-instance_method), [REST](https://developers.neverbounce.com/v4.0/reference#single-check).
 
 ### Create a bulk job
 
