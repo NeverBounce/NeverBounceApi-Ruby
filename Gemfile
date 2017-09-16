@@ -1,6 +1,14 @@
-# A sample Gemfile
+
 source "https://rubygems.org"
 
-gem "httparty", ">= 0.13.7", "< 15.0"
-gem "rspec"
-gem "rake"
+# Self.
+gem "neverbounce-api", path: Pathname(__dir__).realpath
+
+group :development do
+  # RSpec.
+  gem "rspec"
+
+  # YARD and friends.
+  gem "redcarpet"
+  gem "yard"
+end
