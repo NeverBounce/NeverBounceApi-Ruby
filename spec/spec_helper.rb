@@ -1,42 +1,22 @@
 
-# Optionally include developer-local spec helper.
-File.readable?(fn = File.join(__dir__, "spec_local.rb")) and require fn
+# Start SimpleCov BEFORE ALL if it's enabled in Gemlocal.
+require_relative "spec_support/simplecov"
 
-# Start SimpleCov if it's enabled in Gemlocal.
-begin
-  require "simplecov"
-  puts "NOTE: SimpleCov starting"
-  SimpleCov.start
-rescue LoadError
-  # This is mostly a normal case, don't print anything.
-end
+# Optionally include developer-local spec helper.
+File.readable?(fn = File.expand_path("spec_local.rb", __dir__)) and require fn
+
+# Load support files.
+Dir[File.expand_path("spec_support/**/*.rb", __dir__)].each { |fn| require fn }
 
 # Require our entire library, just like the client would do.
 require "neverbounce"
 
 # Require all `spec_helper.rb` throughout the tree for shared contexts.
-Dir[File.join(__dir__, "**/spec_helper.rb")].each { |fn| require fn }
+Dir[File.expand_path("**/spec_helper.rb", __dir__)].each { |fn| require fn }
 
-RSpec.configure do |conf|
-  conf.extend Module.new {
-    # Include hierarchical contexts from <tt>spec/</tt> up to <tt>__dir__</tt>.
-    #
-    #   describe Something do
-    #     include_dir_context __dir__
-    #     ...
-    def include_dir_context(dir)
-      d, steps = dir, []
-      while d.size >= __dir__.size
-        steps << d
-        d = File.join(File.split(d)[0..-2])
-      end
-
-      steps.reverse.each do |d|
-        begin; include_context d; rescue ArgumentError; end
-      end
-    end
-  } # conf.extend
-end
+# Uncomment when there's need to configure RSpec.
+#RSpec.configure do |conf|
+#end
 
 # Absolutely common shared context.
 shared_context __dir__ do

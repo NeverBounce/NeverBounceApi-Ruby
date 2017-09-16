@@ -104,7 +104,7 @@ module NeverBounce; module API
     # @return [Object] An <tt>HTTParty::Response</tt>.
     def server_obj
       @server_obj ||= begin
-        httparty.send *require_attr(:request).to_httparty
+        httparty.send(*require_attr(:request).to_httparty)
       end
     end
 
