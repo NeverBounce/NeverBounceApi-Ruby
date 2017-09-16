@@ -76,7 +76,7 @@ module NeverBounce; module API
     # @param filename [Boolean] Default is <tt>"YYYYMMDD-HHMMSS.csv"</tt> based on current time.
     # @param remote_input [String] E.g. <tt>"http://isp.com/emails.csv"</tt>.
     # @param run_sample [Boolean]
-    # @param supplied_input [Array<Array<email, name>>] E.g. <tt>[["tom@isp.com", "Tom User"], ["dick@domain.com", "Dick Other"]]</tt>.
+    # @param supplied_input [Array<Array<email, name>>] E.g. <tt>[["alice@isp.com", "Alice Roberts"], ["bob.smith@gmail.com", "Bob Smith"]]</tt>.
     # @return [Response::JobsCreate]
     # @return [Response::ErrorMessage]
     # @raise [API::Error]

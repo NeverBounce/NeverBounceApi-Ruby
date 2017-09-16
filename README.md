@@ -95,8 +95,8 @@ See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/Ne
 ### Check a single address
 
 ```ruby
-resp = client.single_check(email: "tom@isp.com")
-resp = client.single_check(email: "tom@isp.com", address_info: true, credits_info: true, timeout: 3)
+resp = client.single_check(email: "alice@isp.com")
+resp = client.single_check(email: "alice@isp.com", address_info: true, credits_info: true, timeout: 3)
 ```
 
 See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#single_check-instance_method), [REST](https://developers.neverbounce.com/v4.0/reference#single-check).
@@ -104,7 +104,7 @@ See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/Ne
 ### Create a bulk job
 
 ```ruby
-resp = client.jobs_create(supplied_input: [["tom@isp.com", "Tom User"], ["dick@domain.com", "Dick Other"]])
+resp = client.jobs_create(supplied_input: [["alice@isp.com", "Alice Roberts"], ["bob.smith@gmail.com", "Bob Smith"]])
 resp = client.jobs_create(remote_input: "http://isp.com/emails.csv")
 resp = client.jobs_create(remote_input: "http://isp.com/emails.csv", filename: "emails.csv", run_sample: true)
 resp = client.jobs_create(remote_input: "http://isp.com/emails.csv", filename: "emails.csv", auto_start: true)

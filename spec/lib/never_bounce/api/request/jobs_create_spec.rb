@@ -50,15 +50,15 @@ module NeverBounce; module API; module Request
           r = goodo(input_location: "supplied", input: [["a"], ["b"]])
           expect { r.send(m) }.to raise_error(AttributeError, 'Invalid `input` element: ["a"]')
 
-          r = goodo(input_location: "supplied", input: [["tom@isp.com", "Tom User"], ["b"]])
+          r = goodo(input_location: "supplied", input: [["alice@isp.com", "Alice Roberts"], ["b"]])
           expect { r.send(m) }.to raise_error(AttributeError, 'Invalid `input` element: ["b"]')
 
-          r = goodo(input_location: "supplied", input: [["tom@isp.com", "Tom User"], ["b", "bb", "bbb"]])
+          r = goodo(input_location: "supplied", input: [["alice@isp.com", "Alice Roberts"], ["b", "bb", "bbb"]])
           expect { r.send(m) }.to raise_error(AttributeError, 'Invalid `input` element: ["b", "bb", "bbb"]')
 
-          r = goodo(input_location: "supplied", input: [["tom@isp.com", "Tom User"], ["dick@gmail.com", "Dick Other"]])
+          r = goodo(input_location: "supplied", input: [["alice@isp.com", "Alice Roberts"], ["bob.smith@gmail.com", "Bob Smith"]])
           expect(h = r.send(m)).to be_a Hash
-          expect(h).to include(input: [["tom@isp.com", "Tom User"], ["dick@gmail.com", "Dick Other"]])
+          expect(h).to include(input: [["alice@isp.com", "Alice Roberts"], ["bob.smith@gmail.com", "Bob Smith"]])
         end
       end
     end

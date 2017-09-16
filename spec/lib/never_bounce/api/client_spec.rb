@@ -182,7 +182,7 @@ module NeverBounce; module API
 
       describe "#single_check" do
         it "generally works" do
-          sc = goodo.single_check(address_info: true, credits_info: true, email: "tom@isp.com", timeout: 12)
+          sc = goodo.single_check(address_info: true, credits_info: true, email: "alice@isp.com", timeout: 12)
           expect(sc).to be_a Array
           signature, request = sc
           expect(signature).to eq :response_to
@@ -190,7 +190,7 @@ module NeverBounce; module API
           expect(request.to_httparty).to be_a Array
           expect(request.address_info).to be true
           expect(request.credits_info).to be true
-          expect(request.email).to eq "tom@isp.com"
+          expect(request.email).to eq "alice@isp.com"
           expect(request.timeout).to eq 12
         end
       end
