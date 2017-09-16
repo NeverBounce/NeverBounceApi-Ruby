@@ -58,8 +58,6 @@ module NeverBounce; module API
         end
       end
     end
-      it "generally works" do
-    end
 
     describe "#robj_klass_and_attrs" do
       let(:m) { :robj_klass_and_attrs }
@@ -74,7 +72,6 @@ module NeverBounce; module API
           def server_obj; raise "This must never be called"; end
         end.new({
           request: request_klass.new,
-          #server_content_type: "server_content_type",
           server_raw: "server_raw",
         }.merge(attrs))
       end
@@ -87,7 +84,6 @@ module NeverBounce; module API
       it "works for raw data" do
         r = newo(
           robj_hash_preview: false,
-          #server_content_type: "application/octet-stream",
         )
         #expect { r.send(m) }.to raise_error(FormatError, /^Key 'status' not found: /)
         expect(r.send(m)).to eq [Response::JobsParse, {:raw => "server_raw"}]
@@ -97,7 +93,6 @@ module NeverBounce; module API
         # Valid JSON.
         r = newo(
           robj_hash_preview: {"a" => 12},
-          #server_content_type: "application/json",
         )
         expect { r.send(m) }.to raise_error(FormatError, /^Key 'status' not found: /)
       end
@@ -105,13 +100,11 @@ module NeverBounce; module API
       it "works for valid data" do
         r = newo(
           robj_hash_preview: {"status" => "success"},
-          #server_content_type: "application/json",
         )
         expect(r.send(m)).to eq [Response::JobsParse, {:body_hash=>{"status"=>"success"}}]
 
         r = newo(
           robj_hash_preview: {"status" => "not-a-success"},   # Not necessarily "error".
-          #server_content_type: "application/json",
         )
         expect(r.send(m)).to eq [Response::ErrorMessage, {:body_hash=>{"status"=>"not-a-success"}}]
       end
@@ -130,9 +123,9 @@ module NeverBounce; module API
           request: Request::JobsParse.new(api_key: "api_key", job_id: "123"),
         )
         expect(r.server_obj).to eq 1    # Result of `cllggr`.
-        #args = httparty._calls[0]
-        #expect(args).to be_a Array
-        #expect(args).not_to be_empty
+        args = httparty._calls[0]
+        expect(args).to be_a Array
+        expect(args).not_to be_empty
       end
     end
   end

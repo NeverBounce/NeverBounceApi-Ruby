@@ -73,8 +73,8 @@ module NeverBounce; module API; module Request
         # Skim through elements of `input`, raise if invalid structure detected, with details.
         input.each do |elem|
           em = [AttributeError, "Invalid `input` element: #{elem.inspect}"]
-          raise *em unless elem.is_a? Array
-          raise *em unless elem.map(&:class) == [String, String]
+          raise(*em) unless elem.is_a? Array
+          raise(*em) unless elem.map(&:class) == [String, String]
         end
       end
 

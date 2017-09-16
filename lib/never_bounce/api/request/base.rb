@@ -60,11 +60,13 @@ module NeverBounce; module API; module Request
           "--url", "#{api_url}/#{self.class.path}",
         ]
 
-        ar += headers.reject { |k, v| k == "User-Agent" }.map do |k, v|
+        ar += headers.reject { |k,| k == "User-Agent" }.flat_map do |k, v|
           ["--header", "#{k}: #{v}"]
-        end.flatten(1)
+        end
 
         ar += ["--data-binary", to_h.to_json]
+
+        ar
       end
     end
 

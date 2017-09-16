@@ -2,6 +2,27 @@
 AllCops:
   DisabledByDefault: true
 
+# Adjusted settings.
+
+Lint/EndAlignment:
+  Description: 'Align ends correctly.'
+  Enabled: false
+
+Lint/AmbiguousRegexpLiteral:
+  Description: >-
+                 Checks for ambiguous regexp literals in the first argument of
+                 a method invocation without parenthesis.
+  Enabled: false
+
+Lint/HandleExceptions:
+  Description: "Don't suppress exception."
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions'
+  Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
+  Description: 'Do not use prefix `_` for a variable that is used.'
+  Enabled: false
+
 #################### Lint ################################
 
 Lint/AmbiguousOperator:
@@ -9,12 +30,6 @@ Lint/AmbiguousOperator:
                  Checks for ambiguous operators in the first argument of a
                  method invocation without parentheses.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#parens-as-args'
-  Enabled: true
-
-Lint/AmbiguousRegexpLiteral:
-  Description: >-
-                 Checks for ambiguous regexp literals in the first argument of
-                 a method invocation without parenthesis.
   Enabled: true
 
 Lint/AssignmentInCondition:
@@ -69,9 +84,6 @@ Lint/EmptyInterpolation:
   Description: 'Checks for empty string interpolation.'
   Enabled: true
 
-Lint/EndAlignment:
-  Description: 'Align ends correctly.'
-  Enabled: true
 
 Lint/EndInMethod:
   Description: 'END blocks should not be placed inside method definitions.'
@@ -88,11 +100,6 @@ Lint/Eval:
 
 Lint/FormatParameterMismatch:
   Description: 'The number of parameters to format/sprint must match the fields.'
-  Enabled: true
-
-Lint/HandleExceptions:
-  Description: "Don't suppress exception."
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#dont-hide-exceptions'
   Enabled: true
 
 Lint/InvalidCharacterLiteral:
@@ -154,9 +161,6 @@ Lint/StringConversionInInterpolation:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-to-s'
   Enabled: true
 
-Lint/UnderscorePrefixedVariableName:
-  Description: 'Do not use prefix `_` for a variable that is used.'
-  Enabled: true
 
 Lint/UnneededDisable:
   Description: >-
