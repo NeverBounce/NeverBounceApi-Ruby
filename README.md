@@ -203,7 +203,8 @@ irb> resp
 In order to load **all** attributes use method `.touch`, like this:
 
 ```
-irb> resp.touch => #<NeverBounce::API::Response::AccountInfo:0x0056245c3e56f8 @status="success",
+irb> resp.touch
+=> #<NeverBounce::API::Response::AccountInfo:0x0056245c3e56f8 @status="success",
 @execution_time=98, @credits_info=#<NeverBounce::API::Response::CreditsInfo::Paid:0x0056245c430478
 @paid_credits_used=0, @free_credits_used=0, @paid_credits_remaining=1000000,
 @free_credits_remaining=973>,@job_counts=#<NeverBounce::API::Response::AccountInfo::JobCounts:0x0056245c430310
@@ -216,7 +217,7 @@ This is true for all API response containers and sub-containers. See [#touch](ht
 
 For most regular tasks `Client` is powerful enough. However, if you need more control, you can use [Request](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Request.html), [Session](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Session.html) and [Response](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Response/SuccessMessage.html) classes directly. Please refer to the online docs.
 
-For example, our [CLI gem]() uses them.
+For example, our [CLI gem](https://github.com/NeverBounce/NeverBounceCli-Ruby) uses them.
 
 ## Command line interface
 

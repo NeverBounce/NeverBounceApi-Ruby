@@ -6,7 +6,7 @@ require "never_bounce/api/feature/igetset"
 require "never_bounce/api/feature/require_attr"
 
 module NeverBounce; module API
-  # Single request-response session (server dialog).
+  # A single request-response session (server dialog).
   # @see API::Feature::BasicInitialize
   # @see API::Feature::Igetset
   # @see API::Feature::RequireAttr
