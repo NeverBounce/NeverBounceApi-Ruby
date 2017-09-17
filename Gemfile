@@ -5,6 +5,9 @@ source "https://rubygems.org"
 gem "neverbounce-api", path: Pathname(__dir__).realpath
 
 group :development do
+  # Code coverage report.
+  gem "simplecov"
+
   # RSpec.
   gem "rspec"
 
