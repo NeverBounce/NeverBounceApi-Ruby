@@ -6,9 +6,9 @@ require __FILE__ + '/../NeverBounce/Single'
 
 module NeverBounce
 
-	VERSION = "0.1.6"
+	VERSION = "0.1.7"
 
-	class API 
+	class API
 	    include HTTParty
         attr_accessor :host, :path, :apikey, :apiSecret, :accessToken, :options
         base_uri 'https://api.neverbounce.com'
@@ -80,12 +80,12 @@ module NeverBounce
 	    # already we'll request a new one
 	    def getAccessToken
 	      # Get existing access token if available
-	      if @accessToken != nil 
+	      if @accessToken != nil
 	        return @accessToken
 	      end
 
 	      # Perform request if no existing access token
-	      response = request('/v3/access_token', 
+	      response = request('/v3/access_token',
 	        :body => {:grant_type => 'client_credentials', :scope => 'basic user'},
 	        :basic_auth => {:username => @apiKey, :password => @apiSecret}
 		  )

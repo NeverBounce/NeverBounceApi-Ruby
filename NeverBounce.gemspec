@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.name        = 'NeverBounce'
   s.version     = NeverBounce::VERSION
   s.date        = '2016-02-22'
-  s.summary     = "The official NeverBounce API library for Ruby"
-  s.description = "The official NeverBounce API library for Ruby"
+  s.summary     = "(depreciated) The official NeverBounce V3 API library for Ruby"
+  s.description = "The official NeverBounce V3 API library for Ruby. The V3 API has been depreciated, do not use this for new projects. Please use `neverbounce-api` for new applications."
   s.authors     = ["Mike Mollick"]
   s.email       = ['mike@neverbounce.com']
   s.homepage    = 'https://neverbounce.com'
