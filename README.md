@@ -2,7 +2,7 @@
 <p align="center"><img src="https://neverbounce-marketing.s3.amazonaws.com/neverbounce_color_600px.png"></p>
 
 <p align="center">
-  <a href="https://badge.fury.io/rb/neverbounce-api"><img src="https://badge.fury.io/rb/neverbounce-api.svg" alt="Gem Version" height="18"></a>
+  <a href="https://badge.fury.io/rb/neverbounce-api"><img src="https://badge.fury.io/rb/neverbounce-api.svg" alt="Gem Version"></a>
   <a href="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby"><img src="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby.svg" alt="Build Status"></a>
   <a href="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/coverage"><img src="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/badges/coverage.svg" /></a>
   <a href="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby"><img src="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/badges/gpa.svg" /></a>
