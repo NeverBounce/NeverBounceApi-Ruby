@@ -2,6 +2,7 @@
 <p align="center"><img src="https://neverbounce-marketing.s3.amazonaws.com/neverbounce_color_600px.png"></p>
 
 <p align="center">
+  <a href="https://badge.fury.io/rb/neverbounce-api"><img src="https://badge.fury.io/rb/neverbounce-api.svg" alt="Gem Version" height="18"></a>
   <a href="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby"><img src="https://travis-ci.org/NeverBounce/NeverBounceApi-Ruby.svg" alt="Build Status"></a>
   <a href="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/coverage"><img src="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/badges/coverage.svg" /></a>
   <a href="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby"><img src="https://codeclimate.com/github/NeverBounce/NeverBounceApi-Ruby/badges/gpa.svg" /></a>
@@ -14,14 +15,20 @@ This is the official NeverBounce V4 API for Ruby. See also:
 
 * Our full RubyDoc documentation: http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby.
 * Our full REST API documentation: https://developers.neverbounce.com/v4.0/.
+* RubyGems CLI: https://github.com/NeverBounce/NeverBounceCli-Ruby.
 
 ## Installation
 
 In your `Gemfile`, add:
 
 ```ruby
-gem "neverbounce-api", git: "https://github.com/NeverBounce/NeverBounceApi-Ruby.git"
+gem "neverbounce-api"
 ```
+
+> For **edge version,** fetch the gem directly:
+> ```ruby
+> gem "neverbounce-api", git: "https://github.com/NeverBounce/NeverBounceApi-Ruby.git"
+> ```
 
 Install bundle:
 
