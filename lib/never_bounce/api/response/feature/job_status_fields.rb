@@ -23,7 +23,7 @@ module NeverBounce; module API; module Response; module Feature
 
         oattr :bounce_estimate, :scalar, type: :float
         oattr :filename, :scalar
-        oattr :percent_complete, :scalar, type: :integer
+        oattr :percent_complete, :scalar, type: :float
 
         oattr :total, :writer
 
