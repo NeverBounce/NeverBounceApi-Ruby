@@ -248,6 +248,27 @@ module NeverBounce; module API
         timeout: timeout,
       }))
     end
+
+    # Make a <tt>poe/confirm</tt> request.
+    # @param email [String]
+    # @param transaction_id [String]
+    # @param confirmation_token [String]
+    # @param result [String]
+    # @return [Response::POEConfirm]
+    # @return [Response::ErrorMessage]
+    # @raise [API::Error]
+    # @raise [StandardError]
+    # @see Request::POEConfirm
+    # @see https://developers.neverbounce.com/v4.0/reference#poe-confirm
+    def poe_confirm(email: nil, transaction_id: nil, confirmation_token: nil, result: nil)
+      response_to(Request::POEConfirm.new({
+        api_key: api_key,
+        email: email,
+        transaction_id: transaction_id,
+        confirmation_token: confirmation_token,
+        result: result,
+      }))
+    end
   end
 end; end
 
