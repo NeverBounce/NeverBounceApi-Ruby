@@ -8,6 +8,7 @@
 /tmp/*
 /vendor/bundle/
 /.yardoc/
+*.gem
 
 # Project-specific.
 /lib/lib_local.rb
