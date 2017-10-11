@@ -194,6 +194,21 @@ module NeverBounce; module API
           expect(request.timeout).to eq 12
         end
       end
+
+      describe "#poe_confirm" do
+        it "generally works" do
+          sc = goodo.poe_confirm(email: "alice@isp.com", transaction_id: "NBTRNS-123456", confirmation_token: "abcdefg123456", result: "valid")
+          expect(sc).to be_a Array
+          signature, request = sc
+          expect(signature).to eq :response_to
+          expect(request).to be_a Request::POEConfirm
+          expect(request.to_httparty).to be_a Array
+          expect(request.email).to eq "alice@isp.com"
+          expect(request.transaction_id).to eq "NBTRNS-123456"
+          expect(request.confirmation_token).to eq "abcdefg123456"
+          expect(request.result).to eq "valid"
+        end
+      end
     end
   end
 end; end

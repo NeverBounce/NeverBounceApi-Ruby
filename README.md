@@ -107,6 +107,12 @@ resp = client.single_check(email: "alice@isp.com")
 resp = client.single_check(email: "alice@isp.com", address_info: true, credits_info: true, timeout: 3)
 ```
 
+### Confirm frontend (Javascript Widget) verification
+
+```ruby
+resp = client.poe_confirm(email: "alice@isp.com", transaction_id: "NBTRNS-abcdefg123456", confirmation_token: "abcdefg123456", result: "valid")
+```
+
 See also: [method](http://rubydoc.info/github/NeverBounce/NeverBounceApi-Ruby/NeverBounce/API/Client.html#single_check-instance_method), [REST](https://developers.neverbounce.com/v4.0/reference#single-check).
 
 ### Create a bulk job
