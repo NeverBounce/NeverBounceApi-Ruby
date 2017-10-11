@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neverbounce-api (1.0.1)
+    neverbounce-api (1.0.2)
       httparty (~> 0.15)
 
 GEM
