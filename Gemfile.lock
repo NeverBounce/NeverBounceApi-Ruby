@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    neverbounce-api (1.0.0)
+    neverbounce-api (1.0.1)
       httparty (~> 0.15)
 
 GEM
@@ -45,4 +45,4 @@ DEPENDENCIES
   yard
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
