@@ -83,7 +83,7 @@ module NeverBounce; module API
     # @raise [StandardError]
     # @see Request::JobsCreate
     # @see https://developers.neverbounce.com/v4.0/reference#jobs-create
-    def jobs_create(auto_parse: nil, auto_start: nil, filename: nil, remote_input: nil, run_sample: nil, supplied_input: nil)
+    def jobs_create(auto_parse: false, auto_start: false, filename: nil, remote_input: nil, run_sample: false, supplied_input: nil)
       raise ArgumentError, "`remote_input` and `supplied_input` can't both be given" if remote_input && supplied_input
 
       input_location = if (v = remote_input)

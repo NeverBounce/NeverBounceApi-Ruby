@@ -5,6 +5,10 @@ env:
   global:
     - CC_TEST_REPORTER_ID=9300cb7898e254e78099399acbb2796471fde0e5c1873899273a583d56c9d740
 
+before_install:
+  - gem update --system
+  - gem install bundler
+
 install:
   - bundle install --path ~/bundle
 
@@ -25,3 +29,4 @@ rvm:
   - 2.2
   - 2.3
   - 2.4
+  - 2.5
