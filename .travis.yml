@@ -5,6 +5,9 @@ env:
   global:
     - CC_TEST_REPORTER_ID=9300cb7898e254e78099399acbb2796471fde0e5c1873899273a583d56c9d740
 
+before_install:
+  - gem update --system
+
 install:
   - bundle install --path ~/bundle
 
