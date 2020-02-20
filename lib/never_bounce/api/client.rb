@@ -90,7 +90,7 @@ module NeverBounce; module API
     # @raise [StandardError]
     # @see Request::JobsCreate
     # @see https://developers.neverbounce.com/v4.0/reference#jobs-create
-    def jobs_create(auto_parse: false, auto_start: false, filename: nil, remote_input: nil, run_sample: false, supplied_input: nil)
+    def jobs_create(auto_parse: false, auto_start: false, filename: nil, remote_input: nil, run_sample: false, supplied_input: nil, historical: nil)
       raise ArgumentError, "`remote_input` and `supplied_input` can't both be given" if remote_input && supplied_input
 
       input_location = if (v = remote_input)
@@ -116,6 +116,7 @@ module NeverBounce; module API
         input: input,
         input_location: input_location,
         run_sample: run_sample,
+        historical: historical,
       }))
     end
 
@@ -254,7 +255,7 @@ module NeverBounce; module API
     # @raise [StandardError]
     # @see Request::SingleCheck
     # @see https://developers.neverbounce.com/v4.0/reference#single-check
-    def single_check(address_info: nil, credits_info: nil, email: nil, timeout: nil)
+    def single_check(address_info: nil, credits_info: nil, email: nil, timeout: nil, historical: nil)
       response_to(Request::SingleCheck.new({
         address_info: address_info,
         api_key: api_key,
@@ -262,6 +263,7 @@ module NeverBounce; module API
         credits_info: credits_info,
         email: email,
         timeout: timeout,
+        historical: historical,
       }))
     end
 

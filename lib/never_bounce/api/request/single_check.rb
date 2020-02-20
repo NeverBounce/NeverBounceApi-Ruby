@@ -17,6 +17,13 @@ module NeverBounce; module API; module Request
     # @return [Integer]
     attr_accessor :timeout
 
+    # @return [Boolean]
+    attr_accessor :historical
+
+    def leverage_historical
+      defined?(@historical) ? @historical : true
+    end
+
     # @return [Symbol]
     def self.http_method
       :get
@@ -46,6 +53,10 @@ module NeverBounce; module API; module Request
 
         unless (v = timeout).nil?
           _[:timeout] = v
+        end
+
+        unless (v = historical).nil?
+          _[:request_meta_data] = {leverage_historical_data: leverage_historical}
         end
       end
     end

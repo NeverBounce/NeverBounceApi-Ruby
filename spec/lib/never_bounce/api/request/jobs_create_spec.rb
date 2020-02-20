@@ -15,6 +15,10 @@ module NeverBounce; module API; module Request
         expect(r.mode_h).to eq({auto_start: false, auto_parse: false, run_sample: false})
         r = newo(auto_start: true, auto_parse: true, run_sample: true)
         expect(r.mode_h).to eq({auto_start: true, auto_parse: true, run_sample: true})
+        r = newo(historical: true)
+        expect(r.mode_h).to eq({request_meta_data: {leverage_historical_data: true}})
+        r = newo(historical: false)
+        expect(r.mode_h).to eq({request_meta_data: {leverage_historical_data: false}})
       end
     end
 
@@ -83,6 +87,34 @@ module NeverBounce; module API; module Request
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\"}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")
+      end
+
+      it "allows historical to be disabled" do
+        r = newo
+        r.input = "input"
+        r.input_location = "remote_url"
+        r.filename = "filename"
+        r.api_key = "api_key"
+        r.historical = false
+
+        res = r.to_httparty
+        expect(res).to be_a Array
+        method, url, data = res
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"request_meta_data\":{\"leverage_historical_data\":false}}"
+      end
+
+      it "allows historical to be explicitly enabled" do
+        r = newo
+        r.input = "input"
+        r.input_location = "remote_url"
+        r.filename = "filename"
+        r.api_key = "api_key"
+        r.historical = true
+
+        res = r.to_httparty
+        expect(res).to be_a Array
+        method, url, data = res
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"request_meta_data\":{\"leverage_historical_data\":true}}"
       end
     end
   end
