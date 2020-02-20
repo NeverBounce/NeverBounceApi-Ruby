@@ -9,6 +9,7 @@ before_install:
   - gem install bundler
 
 install:
+  - bundle update --bundler
   - bundle install --path ~/bundle
 
 before_script:
