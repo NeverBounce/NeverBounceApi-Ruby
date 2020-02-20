@@ -11,13 +11,19 @@ module NeverBounce; module API; module Request
 
     # User's API key.
     # @return [String]
-    attr_accessor :api_key
+    attr_accessor :api_key, :api_version
     attr_writer :api_url, :headers, :user_agent
 
-    # Custom API URL. Default is <tt>https://api.neverbounce.com/v4</tt>.
+    # Custom API URL. Default is <tt>https://api.neverbounce.com</tt>.
     # @return [String]
     def api_url
-      @api_url ||= "https://api.neverbounce.com/v4"
+      @api_url ||= "https://api.neverbounce.com"
+    end
+
+    # Custom API URL. Default is <tt>https://api.neverbounce.com</tt>.
+    # @return [String]
+    def api_version
+      @api_version ||= "v4"
     end
 
     # @!attribute headers
@@ -57,7 +63,7 @@ module NeverBounce; module API; module Request
       @curl ||= begin
         ar = [
           "--request", self.class.http_method.to_s.upcase,
-          "--url", "#{api_url}/#{self.class.path}",
+          "--url", "#{api_url}/#{api_version}/#{self.class.path}",
         ]
 
         ar += headers.reject { |k,| k == "User-Agent" }.flat_map do |k, v|
@@ -82,7 +88,7 @@ module NeverBounce; module API; module Request
     def to_httparty
       [
         self.class.http_method,   # E.g. `:get`.
-        "#{api_url}/#{self.class.path}",
+        "#{api_url}/#{api_version}/#{self.class.path}",
         {
           body: to_h.to_json,
           headers: headers,

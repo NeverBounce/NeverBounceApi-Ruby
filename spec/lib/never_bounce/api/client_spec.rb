@@ -14,6 +14,16 @@ module NeverBounce; module API
           expect(r.api_key).to eq "api_key"
         end
       end
+
+      describe "#api_version" do
+        it "generally works" do
+          r = newo
+          r.api_key = "api_key"
+          expect(r.api_version).to eq nil
+          r.api_version = "api_version"
+          expect(r.api_version).to eq "api_version"
+        end
+      end
     end # describe "attributes"
 
     describe "requests" do

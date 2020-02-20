@@ -37,12 +37,18 @@ module NeverBounce; module API
     Feature::BasicInitialize.load(self)
     Feature::RequireAttr.load(self)
 
-    attr_writer :api_key
+    attr_writer :api_key, :api_version
 
     # API key.
     # @return [String]
     def api_key
       @api_key or raise AttributeError, "Attribute must be set: api_key"
+    end
+
+    # API version.
+    # @return [String]
+    def api_version
+      @api_version
     end
 
     #--------------------------------------- Misc
@@ -67,6 +73,7 @@ module NeverBounce; module API
     def account_info
       response_to(Request::AccountInfo.new({
         api_key: api_key,
+        api_version: api_version,
       }))
     end
 
@@ -102,6 +109,7 @@ module NeverBounce; module API
 
       response_to(API::Request::JobsCreate.new({
         api_key: api_key,
+        api_version: api_version,
         auto_parse: auto_parse,
         auto_start: auto_start,
         filename: filename,
@@ -122,6 +130,7 @@ module NeverBounce; module API
     def jobs_delete(job_id: nil)
       response_to(Request::JobsDelete.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
       }))
     end
@@ -137,6 +146,7 @@ module NeverBounce; module API
     def jobs_download(job_id: nil)
       response_to(Request::JobsDownload.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
       }))
     end
@@ -153,6 +163,7 @@ module NeverBounce; module API
     def jobs_parse(auto_start: nil, job_id: nil)
       response_to(Request::JobsParse.new({
         api_key: api_key,
+        api_version: api_version,
         auto_start: auto_start,
         job_id: job_id,
       }))
@@ -171,6 +182,7 @@ module NeverBounce; module API
     def jobs_results(job_id: nil, page: 1, per_page: nil)
       response_to(Request::JobsResults.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
         page: page,
         per_page: per_page,
@@ -190,6 +202,7 @@ module NeverBounce; module API
     def jobs_search(job_id: nil, page: 1, per_page: nil)
       response_to(Request::JobsSearch.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
         page: page,
         per_page: per_page,
@@ -208,6 +221,7 @@ module NeverBounce; module API
     def jobs_start(job_id: nil, run_sample: nil)
       response_to(Request::JobsStart.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
         run_sample: run_sample,
       }))
@@ -224,6 +238,7 @@ module NeverBounce; module API
     def jobs_status(job_id: nil)
       response_to(Request::JobsStatus.new({
         api_key: api_key,
+        api_version: api_version,
         job_id: job_id,
       }))
     end
@@ -243,6 +258,7 @@ module NeverBounce; module API
       response_to(Request::SingleCheck.new({
         address_info: address_info,
         api_key: api_key,
+        api_version: api_version,
         credits_info: credits_info,
         email: email,
         timeout: timeout,
@@ -263,6 +279,7 @@ module NeverBounce; module API
     def poe_confirm(email: nil, transaction_id: nil, confirmation_token: nil, result: nil)
       response_to(Request::POEConfirm.new({
         api_key: api_key,
+        api_version: api_version,
         email: email,
         transaction_id: transaction_id,
         confirmation_token: confirmation_token,
