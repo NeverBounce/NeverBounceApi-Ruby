@@ -55,7 +55,7 @@ module NeverBounce; module API; module Request
           _[:timeout] = v
         end
 
-        unless (v = historical).nil?
+        unless historical.nil?
           _[:request_meta_data] = {leverage_historical_data: leverage_historical}
         end
       end

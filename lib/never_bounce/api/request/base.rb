@@ -11,8 +11,8 @@ module NeverBounce; module API; module Request
 
     # User's API key.
     # @return [String]
-    attr_accessor :api_key, :api_version
-    attr_writer :api_url, :headers, :user_agent
+    attr_accessor :api_key
+    attr_writer :api_url, :headers, :user_agent, :api_version
 
     # Custom API URL. Default is <tt>https://api.neverbounce.com</tt>.
     # @return [String]
