@@ -21,7 +21,7 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(method).to eq :get
-        expect(url).to eq "https://api.neverbounce.com/v4/jobs/status"
+        expect(url).to eq "https://api.neverbounce.com/v4.1/jobs/status"
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"job_id\":\"123\",\"key\":\"api_key\"}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")

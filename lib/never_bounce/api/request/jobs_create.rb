@@ -23,6 +23,13 @@ module NeverBounce; module API; module Request
     # @return [Boolean]
     attr_accessor :run_sample
 
+    # @return [Boolean]
+    attr_accessor :historical
+
+    def leverage_historical
+      defined?(@historical) ? @historical : true
+    end
+
     # @return [Symbol]
     def self.http_method
       :post
@@ -52,6 +59,10 @@ module NeverBounce; module API; module Request
 
         unless (v = run_sample).nil?
           _[:run_sample] = v
+        end
+
+        unless historical.nil?
+          _[:request_meta_data] = {leverage_historical_data: leverage_historical}
         end
       end
     end
