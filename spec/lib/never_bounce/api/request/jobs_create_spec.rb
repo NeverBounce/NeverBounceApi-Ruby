@@ -83,7 +83,7 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(method).to eq :post
-        expect(url).to eq "https://api.neverbounce.com/v4/jobs/create"
+        expect(url).to eq "https://api.neverbounce.com/v4.1/jobs/create"
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\"}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")

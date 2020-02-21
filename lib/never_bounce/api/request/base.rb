@@ -23,7 +23,7 @@ module NeverBounce; module API; module Request
     # Custom API URL. Default is <tt>https://api.neverbounce.com</tt>.
     # @return [String]
     def api_version
-      @api_version ||= "v4"
+      @api_version ||= "v4.1"
     end
 
     # @!attribute headers
