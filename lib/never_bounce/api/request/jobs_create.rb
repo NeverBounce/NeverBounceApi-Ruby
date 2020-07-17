@@ -26,6 +26,15 @@ module NeverBounce; module API; module Request
     # @return [Boolean]
     attr_accessor :historical
 
+    # @return [Boolean]
+    attr_accessor :allow_manual_review
+
+    # @return [String]
+    attr_accessor :callback_url
+
+    # @return [Hash]
+    attr_accessor :callback_headers
+
     def leverage_historical
       defined?(@historical) ? @historical : true
     end
@@ -59,6 +68,18 @@ module NeverBounce; module API; module Request
 
         unless (v = run_sample).nil?
           _[:run_sample] = v
+        end
+
+        unless (v = allow_manual_review).nil?
+          _[:allow_manual_review] = v
+        end
+
+        unless (v = callback_url).nil?
+          _[:callback_url] = v
+        end
+
+        unless (v = callback_headers).nil?
+          _[:callback_headers] = v
         end
 
         unless historical.nil?

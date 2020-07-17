@@ -11,6 +11,9 @@ module NeverBounce; module API; module Request
     # @return [Boolean]
     attr_accessor :run_sample
 
+    # @return [Boolean]
+    attr_accessor :allow_manual_review
+
     # @return [Symbol]
     def self.http_method
       :post
@@ -32,6 +35,10 @@ module NeverBounce; module API; module Request
       @mode_h ||= {}.tap do |_|
         unless (v = run_sample).nil?
           _[:run_sample] = v
+        end
+
+        unless (v = allow_manual_review).nil?
+          _[:allow_manual_review] = v
         end
       end
     end
