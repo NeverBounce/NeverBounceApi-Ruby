@@ -30,6 +30,7 @@ module NeverBounce; module API; module Response; module Feature
         oattr :created_at, :scalar
         oattr :finished_at, :scalar
         oattr :started_at, :scalar
+        oattr :failure_reason, :scalar
       end
     end
 
