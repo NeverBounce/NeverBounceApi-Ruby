@@ -38,7 +38,7 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(method).to eq :get
-        expect(url).to eq "https://api.neverbounce.com/v4.1/single/check"
+        expect(url).to eq "https://api.neverbounce.com/v4.2/single/check"
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"email\":\"email\",\"key\":\"api_key\",\"address_info\":true,\"credits_info\":true,\"timeout\":12}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")

@@ -27,7 +27,7 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(method).to eq :get
-        expect(url).to eq "https://api.neverbounce.com/v4.1/poe/confirm"
+        expect(url).to eq "https://api.neverbounce.com/v4.2/poe/confirm"
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"email\":\"email\",\"transaction_id\":\"NBTRNS-abcdefg\",\"confirmation_token\":\"abcdefg123456\",\"result\":\"valid\",\"key\":\"api_key\"}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")
