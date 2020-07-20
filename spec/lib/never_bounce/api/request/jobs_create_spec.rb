@@ -161,7 +161,7 @@ module NeverBounce; module API; module Request
         res = r.to_httparty
         expect(res).to be_a Array
         method, url, data = res
-        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"callback_url\":\"http://test.com\",\"request_meta_data\":{\"Authorization\":\"Basic test\"}}"
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"callback_url\":\"http://test.com\",\"callback_headers\":{\"Authorization\":\"Basic test\"}}"
       end
     end
   end
