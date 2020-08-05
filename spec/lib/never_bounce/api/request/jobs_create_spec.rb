@@ -9,7 +9,7 @@ module NeverBounce; module API; module Request
       it "generally works" do
         r = newo()
         expect(r.mode_h).to eq({})
-        r = newo(auto_start: nil, auto_parse: nil, run_sample: nil)
+        r = newo(auto_start: nil, auto_parse: nil, run_sample: nil, allow_manual_review: nil)
         expect(r.mode_h).to eq({})
         r = newo(auto_start: false, auto_parse: false, run_sample: false)
         expect(r.mode_h).to eq({auto_start: false, auto_parse: false, run_sample: false})
@@ -19,6 +19,10 @@ module NeverBounce; module API; module Request
         expect(r.mode_h).to eq({request_meta_data: {leverage_historical_data: true}})
         r = newo(historical: false)
         expect(r.mode_h).to eq({request_meta_data: {leverage_historical_data: false}})
+        r = newo(allow_manual_review: true, callback_url: "http://test.com", callback_headers: {:Authorization => "Basic test"})
+        expect(r.mode_h).to eq({allow_manual_review: true, callback_url: "http://test.com", callback_headers: {:Authorization => "Basic test"}})
+        r = newo(allow_manual_review: false, callback_url: nil, callback_headers: nil)
+        expect(r.mode_h).to eq({allow_manual_review: false})
       end
     end
 
@@ -83,7 +87,7 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(method).to eq :post
-        expect(url).to eq "https://api.neverbounce.com/v4.1/jobs/create"
+        expect(url).to eq "https://api.neverbounce.com/v4.2/jobs/create"
         expect(data).to include(:body, :headers)
         expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\"}"
         expect(data.fetch(:headers)).to include("Content-Type", "User-Agent")
@@ -115,6 +119,49 @@ module NeverBounce; module API; module Request
         expect(res).to be_a Array
         method, url, data = res
         expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"request_meta_data\":{\"leverage_historical_data\":true}}"
+      end
+
+      it "allows allow manual review parameter to be enabled" do
+        r = newo
+        r.input = "input"
+        r.input_location = "remote_url"
+        r.filename = "filename"
+        r.api_key = "api_key"
+        r.allow_manual_review = true
+
+        res = r.to_httparty
+        expect(res).to be_a Array
+        method, url, data = res
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"allow_manual_review\":true}"
+      end
+
+      it "allows allow manual review parameter to be disabled" do
+        r = newo
+        r.input = "input"
+        r.input_location = "remote_url"
+        r.filename = "filename"
+        r.api_key = "api_key"
+        r.allow_manual_review = false
+
+        res = r.to_httparty
+        expect(res).to be_a Array
+        method, url, data = res
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"allow_manual_review\":false}"
+      end
+
+      it "allows callback url and headers" do
+        r = newo
+        r.input = "input"
+        r.input_location = "remote_url"
+        r.filename = "filename"
+        r.api_key = "api_key"
+        r.callback_url = "http://test.com"
+        r.callback_headers = {:Authorization => "Basic test"}
+
+        res = r.to_httparty
+        expect(res).to be_a Array
+        method, url, data = res
+        expect(data.fetch(:body)).to eq "{\"input\":\"input\",\"input_location\":\"remote_url\",\"filename\":\"filename\",\"key\":\"api_key\",\"callback_url\":\"http://test.com\",\"callback_headers\":{\"Authorization\":\"Basic test\"}}"
       end
     end
   end
