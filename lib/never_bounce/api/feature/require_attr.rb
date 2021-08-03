@@ -19,7 +19,7 @@ module NeverBounce; module API; module Feature
       # @return [mixed]
       def require_attr(name)
         send(name).tap do |_|
-          raise AttributeError, "Attribute must be set: #{name}" if _.nil?
+          raise AttributeError, "Attribute must be set: #{name}" if _ == nil
         end
       end
     end
