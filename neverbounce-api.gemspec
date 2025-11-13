@@ -1,4 +1,3 @@
-
 require_relative "lib/never_bounce/api/version"
 
 Gem::Specification.new do |s|
@@ -17,4 +16,20 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
 
   s.add_dependency("httparty", "~> 0.15")
+
+  ruby_version = Gem::Version.new(RUBY_VERSION)
+
+  if ruby_version >= Gem::Version.new("3.1.0")
+    s.add_dependency("bigdecimal", "~> 3.2")
+    s.add_dependency("csv", "~> 3.3")
+  end
+
+  if ruby_version >= Gem::Version.new("3.4.0")
+    s.add_dependency("base64", "~> 0.3.0")
+  end
+
+  s.add_development_dependency("redcarpet") # for YARD
+  s.add_development_dependency("rspec")
+  s.add_development_dependency("simplecov", "~> 0.22")
+  s.add_development_dependency("yard")
 end

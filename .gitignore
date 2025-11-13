@@ -10,6 +10,10 @@
 /.yardoc/
 *.gem
 
+# Because we're building a gem; see
+# https://bundler.io/guides/bundler_workflow.html
+Gemfile.lock
+
 # Project-specific.
 /lib/lib_local.rb
 /log/
